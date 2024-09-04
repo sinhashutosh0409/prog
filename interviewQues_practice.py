@@ -156,16 +156,37 @@ def some_func(n):
 # **18 write a decorator that returns only positive values of subtraction
 #
 # **19 How to get the count of number of instances of a class that is being created.**
+class Demo:
+    count = 0
+    def __init__(self,a,b):
+        Demo.count = Demo.count + 1
+        self.a = a
+        self.b = b
+d = Demo(10,20)
+e = Demo(5,7)
+# d.__setattr__(20,30)
+# print(vars(d))
+# print(d.count)
 #
-# **20 Write a function which takes a list of strings and integers.If the item is a string it should print as is and if the item is integer of float it should reverse it.**
-#
+# **20 Write a function which takes a list of strings and integers.If the item is a string it
+# should print as is and if the item is integer of float it should reverse it.**
+
+names = ["steve", "mark", "john"]
+numbers = [1,2,3,4,5]
+num = [1.2,1.8, 90]
+def some_func(some_list):
+    if isinstance(some_list,str):
+        print(some_list)
+    else:
+        print(some_list[::-1])
+# some_func(num)
+
 # **21 Write a class named Simple and it should have iteration capability.**
 #
 # **22 Write a Custom class which can access the values of dictionaries using d['a'] and d.a**
 #
 # **23 Write a python program to get the below output**
-#
-# sentence = "Hi How are you"
+sentence = "Hi How are you"
 # # o/p should be "iH woH era uoy"
 # sentence_list = sentence.split()
 # res = []
@@ -212,7 +233,7 @@ sentence = "Hi How are you"
 # **29 write a program to reverse the values in the dictionary if the value is of type String**
 
 d = {'a': 'hello', 'b': 100, 'c': 10.1, 'd': 'world'}
-for key,value in 
+# for key,value in
 # **30 write a program to get 1234**
 # t = ('1', '2', '3', '4')
 #
@@ -241,31 +262,88 @@ for key,value in
 # INFO: This is an info
 # ERROR: This is an error
 # CRITICAL: This is critical"""
-#
+
 # **34 Write a function to reverse any iterable without using reverse function.**
-# >>> a = [1, 2, 3, 4, 5]
-#
+a = [1, 2, 3, 4, 5]
+
+def func_(something):
+    new = " "
+    for item in something:
+        new = str(item) + " " + new
+    return new.split()
+
+# print(func_(a))
+
+
 # **35 Write a function to print the below output.**
 # # func("TRACXN", 0)  # Should print RCN
 # # func("TRACXN", 1)  # Should print TAX
 #
 # **36 Sum all the numbers in the below string.**
 # s = "Sony12India567Pvt2ltd"
-#
+# sum = 0
+# for item in s:
+#     if item.isdigit():
+#         sum = sum + int(item)
+# print(sum)
+
+
 # **37 Write a program to sum all the numbers in below string.**
 # s = "Sony12India567Pvt2ltd" # eg.12+567+2
+# res = ""
+# for item in s:
+#     if item.isdigit():
+#         res = res + item
+#     else:
+#         res = res + " "
+# print(res)
+# res_list = res.split()
 #
+# data = sum([int(item) for item in res_list])
+# print(data)
+
+# for i in res_list:
+#      if i.isdigit():
+#         total =total + int(i)
+# print(total)
+
+
+
 # **38 Print all the numbers in the below list**
 # a = ['abc', '123', 'hello', '23']
-#
+# for item in a:
+#     if item.isdigit():
+#         print(item)
+
+
+
 # **39 Program to print the number of occurrences of characters in a String without using inbuilt functions.**
-# >>> s = 'helloworld'
-#
+# s = 'helloworld'
+# d={}
+# for item in s:
+#     if item not in d:
+#         d[item]=1
+#     else:
+#         d[item]=d[item] + 1
+# print(d)
+
 # **40 Program to print only the repeated characters and count of the same.**
-# >>> s = 'helloworld'
-#
+# s = 'helloworld'
+# d = {}
+# for item in s:
+#     if item not in d:
+#         d[item]=1
+#     else:
+#         d[item]+=1
+# for key,value in d.items():
+#     if value>1:
+#         print(key,value)
 # **41 Write a program to get alternate characters of a string in list format.**
-# s = 'hello world welcome to python'
+s = 'hello world welcome to python'
+s_new = s[::2]
+print(s_new.split())
+
+
 
 
 

@@ -35,15 +35,6 @@ p1 = BankAccount("mark", 2000)
 p2 = BankAccount("peter", 1500)
 print(p2.roi())
 
-
-
-
-
-
-
-
-
-
 # print(p1.Deposit(1200))
 # print(p1.Withdraw(100))
 # print(p1.Withdraw(100))

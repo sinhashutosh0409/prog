@@ -1,413 +1,189 @@
 # **1. Write a program to find the length of the string without using inbuilt function (len)**
 word = "hello"
 count = 0
-for item in word:
-    count = count + 1
+for w in word:
+    count+=1
 # print(count)
-# print(len(word))
-#############################################################################
+
 # **2. Write a program to reverse a string without using any inbuilt functions.**
-word = "hello"
-result = ""
-for letter in word:
-    result = letter + result
-# print(result)
-#################################################################################
+word = " hello world"
+res = ""
+for w in word:
+    res = w + res
+# print(res)
+
 # **3. Write a program to replace one string with another. e.g. "Hello World" replace "World" with "Universe".**
-sentence = "Hello World"
-sen_list= sentence.split()
-result=[]
-for item in sen_list:
-    if item == "World":
-        result.append("Universe")
+words = "Hello World"
+res = ""
+words_ = words.split()
+for word in words_:
+    if word == "World":
+        res = res + "Universe"
     else:
-        result.append(item)
-# print(result)
-# print(sentence.replace("World","Universe"))
-########################################################################################
+        res = res + word + " "
+# print(res)
+
 # **4. How to convert a string to a list and vice-versa.**
 word = "hello"
 word_list = word.split()
-# print(word_list)
-# print("".join(word_list))
-##########################################################################################
+word_str = "".join(word_list)
+# print(word_str)
 # **5. Covert the string "Hello welcome to Python" to a comma separated string.**
-sentence = "Hello welcome to Python"
-s_list = sentence.split()
-# print(",".join(s_list))
-#########################################################################################
+words = "Hello welcome to Python"
+word_list_ = words.split()
+# print(",".join(word_list_))
 # **6. Write a program to print alternate characters in a string.**
-word = "hello"
-# for index,item in enumerate(word):
+word = "hello python"
+# for index,w in enumerate(word):
 #     if index % 2 == 0:
-#         print(item)
+#         print(w)
 
-#########################################################################################
 # **7. Write a Program to print ascii values of the characters present in a string.**
-word = "hello"
-# for item in word:
-#     print(item,ord(item))
-#############################################################################################
+# word = "hello python"
+# for w in word:
+#     print(ord(w))
 # **8. Write program to convert upper case to lower case and vice-versa without using inbuilt method.**
-word = "HeLLo World"
-result = ""
-for item in word:
-    if ord("a") <= ord(item) <= ord("z"):
-        result = result + chr(ord(item) - 32)
-    elif ord("A") <= ord(item) <= ord("Z"):
-        result = result + chr(ord(item) + 32)
-
+words = "HeLLo WorlD"
+res = ""
+for word in words:
+    if ord("a") < ord(word)  < ord("z"):
+        res = res + chr(ord(word) - 32)
+    elif ord("A") < ord(word) < ord("Z"):
+        res = res + chr(ord(word) + 32)
     else:
-        result = result + item
-# print(result)
-########################################################################################
+        res = res + word
+# print(res)
 # **9. Write program to swap two numbers without using 3rd variable.**
-a=10
-b=20
-a,b=b,a
-# print(a,b)
-########################################################################################
-# **10. Write program to merge two different lists.**
-a=[1,2,3,4,5]
-b=[6,7,8,5,9]
-a.extend(b)
+# a=10
+# b=20
+# a,b = 20,10
 # print(a)
+# print(b)
+# **10. Write program to merge two different lists.**
+# a = [1,2,3,4,5]
+# b = [6,7,8,9,10]
+# print(a + b)
 # **11. Write program to read a random line in a file. (ex. 50, 65, 78th line)**
-def read_line(n):
-    with open("text1.txt") as file:
-        for index,line in enumerate(file,start=1):
-            if index == n:
-                return line
-# print(read_line(3))
+def _read_random_lines(n):
+    with open("demo1.txt") as file:
+        for line_no,line in enumerate(file):
+            if line_no == n:
+                print(line)
 
-####################################################################################################
+# print(_read_random_lines(2))
 # **12. Write program to read a random lines in a file. (ex. I want read all lines 10th to 15th line)**
 from itertools import islice
-# def read_line(start,end):
-#     with open("text1.txt") as file:
-#         for index,line in enumerate(file,start=1):
-#             if index in range(start,end+1):
-#                 print(line)
-# print(read_line(1,4))
-# def readlines(start,end):
-#     with open("text1.txt") as file:
-#         lines = islice(file,start,end+1)
-#         for line in lines:
-#             print(line)
-# print(readlines(1,4))
-##############################################################################
+def get_random(x,y):
+    with open("demo1.txt") as file:
+        item = islice(file,x,y)
+        for i in item:
+            print(i)
+# print(get_random(2,5))
 # **13 Program to print last "N" lines of a file.**
-from itertools import islice
 
-with open("text1.txt") as file:
-    lines= islice(file,2)
-    # for item in lines:
-        # print(item)
-###########################################################################3
 # **14. Write a program to check if the given string is Palindrome or not without using reversed method.
-word = "aabaa"
-rev=""
-for item in word:
-    rev = item + rev
-# if word == rev:
-#     print("it is a palindrome")
-# else:
-#     print("it is not a palindrome")
-
+#
 # **15 Write a program to search for a character in a given string and return the corresponding index.**
-word = "hello"
-def search_char(some_char):
-    for index,letter in enumerate(word):
-        if some_char == letter:
-            return letter,index
-# print(search_char("o"))
-
+#
 # **16 Write a program to get the below output**
-sentence = "hello world welcome to python programming hi there"
+# sentence = "hello world welcome to python programming hi there"
 # d = {'h': ['hello', 'hi'], 'w': ['world', 'welcome'], 't': ['to', 'there'], 'p': ['python', 'programming'] }
-d = {}
-s_list= sentence.split()
-for item in s_list:
-    if item[0] not in d:
-        d[item[0]]=item
-    else:
-        d[item[0]] +=" " +  item
-# print(d)
-#######################################################################################
+#
 # **17 Write a to replace all the characters with - if the character occurs more than once in a string**
-sentence = "hello python"
-result = " "
-for letter in sentence:
-    if sentence.count(letter) >1:
-        result = result + "-"
-    else:
-        result = result  + letter
-# print(result)
-######################################################################################
+#
 # **18 write a decorator that returns only positive values of subtraction**
-def positive_only(some_func):
-    def wrapper(*args):
-        res = abs(some_func(*args))
-        return res
-    return wrapper
-@positive_only
-def sub(a,b):
-    return a-b
-# print(sub(10,20))
+#
 # **19 How to get the count of number of instances of a class that is being created.**
-class Demo:
-    count = 0
-    def __init__(self,a):
-        Demo.count += 1
-        self.a = a
-d=Demo(10)
-d1=Demo(13)
-d1=Demo(13)
-# print(Demo.count)
-##################################################################################
-# **20 Write a function which takes a list of strings and integers.If the item is a string it should print
-# as is and if the item is integer of float it should reverse it.**
-a = [11234,223,.653,987634634,5.5,"hello","hello sandy"]
-
-def reverse_(some_list):
-    for item in some_list:
-        if isinstance(item,str):
-            print(item)
-        else:
-            print(str(item)[::-1])
-
-# print(reverse_(a))
-
-#####################################################################################
+#
+# **20 Write a function which takes a list of strings and integers.If the item is a string it should print as is and if the item is integer of float it should reverse it.**
+#
 # **21 Write a class named Simple and it should have iteration capability.**
-########################################################################################
+#
 # **22 Write a Custom class which can access the values of dictionaries using d['a'] and d.a**
-class Custom_Dict:
-    def __init__(self,a,b):
-        self.a = a
-        self.b = b
-
-    def __getitem__(self, item):
-        if item == "a":
-            print(self.a)
-        elif item == "b":
-            print(self.b)
-        else:
-            raise Exception("key not found")
-# d= Custom_Dict(10,20)
-# print(d["a"])
-# print(d["b"])
-#############################################################################################
+#
 # **23 Write a python program to get the below output**
-sentence = "Hi How are you"
+#
+# sentence = "Hi How are you"
 # o/p should be "iH woH era uoy"
-s_list = sentence.split()
-result = []
-for item in s_list:
-    result.append(item[::-1])
-# print(" ".join(result))
-#############################################################################################
+#
 # **25 Write a lambda function to add two numbers (a, b)**
-res = lambda a,b:a+b
-# print(res(10,15))
-###########################################################################################
+#
 # **26 What is the output of the following**
-sentence = "Hi How are you"
+# 	sentence = "Hi How are you"
 # 	o/p should be "ouy era woH iH"
-# s_list = sentence.split()
-# list_rev = s_list[::-1]
-# new = []
-# for item in list_rev:
-#     new.append(item[::-1])
-# print(" ".join(new))
-##############################################################################################
-# **27 How to remove duplicates from the list without using inbuilt functions**
-items = [1, 2, 3, 4, 1, 2, 3, 4, 5]
-res = []
-for item in items:
-    if item not in res:
-        res.append(item)
-# print(res)
-# print(set(items))
-###################################################################################################
+#
+# **
+# 27 How to remove duplicates from the list without using inbuilt functions**
+# >>> items = [1, 2, 3, 4, 1, 2, 3, 4, 5]
+#
 # **28 Find the longest word in the sentence**
-sentence = "Hello world Welcome to Python"
-d={}
-s_list = sentence.split()
-for item in s_list:
-    if item not in d:
-        d[item] = len(item)
-
-longest_=d.items()
-def func(some_list):
-    return some_list[-1]
-a=sorted(longest_,key=func)
-# print(a[-1])
-#write a  a program to reverse the values in the dictionary if the value is of type String**
-d = {'a': 'hello', 'b': 100, 'c': 10.1, 'd': 'world'}
-d_new = {}
-for key,value in d.items():
-    if isinstance(value,str):
-        if key not in d_new:
-            d_new[key]=value[::-1]
-    else:
-            d_new[key]= value
-# print(d_new)
-#######################################################################################
-
+# sentence = "Hello world. Welcome to Python"
+#
+# **29 write a program to reverse the values in the dictionary if the value is of type String**
+# >>> d = {'a': 'hello', 'b': 100, 'c': 10.1, 'd': 'world'}
+#
 # **30 write a program to get 1234**
-t = ('1', '2', '3', '4')
-res=[]
-for item in t:
-    res.append(item)
-# print("".join(res))
-
+# t = ('1', '2', '3', '4')
+#
 # **31 How to get the elements that are in list b but not in list a**
-a = [1, 2, 3]
-b = [1, 2, 3, 4]
-# for i in b:
-#     if i not in a:
-#         print(i)
-
-###################################################################################################################
-# **32 A function takes variable number of positional arguments as input.
-# How to check if the arguments that are passed are more than 5**
-def func(*args):
-    if len(args) >5:
-        print("args are more than 5")
-    else:
-        print("args are less than 5")
-
-# print(func(1,2,3,4,))
-##############################################################################################
+# a = [1, 2, 3]
+# b = [1, 2, 3, 4]
+#
+# **32 A function takes variable number of positional arguments as input. How to check if the arguments that are passed are more than 5**
+#
 # **33 Count the number of occurrences of "CRITICAL", "INFO" and "ERROR" lines in a log file.**
-# Assume Below is the contents of the log file
-lines = """CRITICAL:Hello world
-INFO: This is an info
-ERROR: This is an error
-CRITICAL: This is critical
-CRITICAL:Hello world
-INFO: This is an info
-ERROR: This is an error
-CRITICAL: This is critical
-CRITICAL:Hello world
-INFO: This is an info
-ERROR: This is an error
-CRITICAL: This is critical
-CRITICAL:Hello world
-INFO: This is an info
-ERROR: This is an error
-CRITICAL: This is critical"""
-d={}
-line_ = lines.splitlines()
-
-d={}
-for item in line_:
-    msg,content = item.split(":")
-    if msg not in d:
-        d[msg] = 1
-    else:
-        d[msg] += 1
-# print(d)
+# # Assume Below is the contents of the log file
+#
+# lines = """CRITICAL:Hello world
+# INFO: This is an info
+# ERROR: This is an error
+# CRITICAL: This is critical
+# CRITICAL:Hello world
+# INFO: This is an info
+# ERROR: This is an error
+# CRITICAL: This is critical
+# CRITICAL:Hello world
+# INFO: This is an info
+# ERROR: This is an error
+# CRITICAL: This is critical
+# CRITICAL:Hello world
+# INFO: This is an info
+# ERROR: This is an error
+# CRITICAL: This is critical"""
+#
 # **34 Write a function to reverse any iterable without using reverse function.**
-a = [1, 2, 3, 4, 5]
-def rev(some_thing):
-    return some_thing[::-1]
-# print(rev(a))
-###################################################################################################
-
+# >>> a = [1, 2, 3, 4, 5]
+#
 # **35 Write a function to print the below output.**
 # # func("TRACXN", 0)  # Should print RCN
 # # func("TRACXN", 1)  # Should print TAX
-
-def func(some_str,n):
-    str_=""
-    for index,item in enumerate(some_str,start=1):
-        if index % 2 == n:
-            str_ += item
-    # print(str_)
-# func("TRACXN",0)
-#####################################################################################################
+#
 # **36 Sum all the numbers in the below string.**
-s = "Sony12India567Pvt2ltd"
-result = 0
-for item in s:
-    if item.isdigit():
-        result += int(item)
-# print(result)
-
-
+# s = "Sony12India567Pvt2ltd"
+#
 # **37 Write a program to sum all the numbers in below string.**
-s = "Sony12India567Pvt2ltd" # eg.12+567+2
-numbers = ""
-for item  in s:
-    if item.isdigit():
-        numbers += item
-    else:
-        numbers += " "
-numbers_ = numbers.split()
-result = 0
-for i in numbers_:
-        result += int(i)
-# print(result)
-
+# s = "Sony12India567Pvt2ltd" # eg.12+567+2
+#
 # **38 Print all the numbers in the below list**
-a = ['abc', '123', 'hello', '23']
-# for item in a:
-#     if item.isdigit():
-        # print(item)
-
+# a = ['abc', '123', 'hello', '23']
+#
 # **39 Program to print the number of occurrences of characters in a String without using inbuilt functions.**
-s = 'helloworld'
-d={}
-for item in s:
-    if item not in d:
-        d[item]=1
-    else:
-        d[item]+=1
-# print(d)
-
-
+# >>> s = 'helloworld'
+#
 # **40 Program to print only the repeated characters and count of the same.**
-s = 'helloworld'
-d={}
-for item in s:
-    if item not in d:
-        if s.count(item)>1:
-            d[item]=1
-    else:
-        d[item]+=1
-# print(d)
-
+# >>> s = 'helloworld'
+#
 # **41 Write a program to get alternate characters of a string in list format.**
-s = 'hello world welcome to python'
-new=[]
-for index,item in enumerate(s):
-    if index %2 == 0:
-        new.append(item)
-# print(new)
-
-
+# s = 'hello world welcome to python'
+#
 # **42 Write a program to get square of list of number's using lambda function .**
-a = [1, 2, 3, 4, 5]
-# res = []
-# for num in a:
-#     sq=num ** 2
-#     res.append(sq)
-# print(res)
-
-sq = lambda a : a ** 2
-# print(list(map(sq,a)))
-#####################################################################################################
+# >>> a = [1, 2, 3, 4, 5]
+#
 # **43 Write a function that accepts two strings and returns True if the two strings are anagrams of each other.**
-
+#
 # **44 Write a program to iterate through list and build a new list, only if the items of the list has even number of characters.**
-names = ['apple', 'yahoo', 'google', 'gmail', 'walmart', 'flipkart', 'facebook', 'amazon']
-new_list = []
-for name in names:
-    if len(name) %2 == 0:
-        new_list.append(name)
-# print(new_list)
+# >>> names = ['apple', 'yahoo', 'google', 'gmail', 'walmart', 'flipkart', 'facebook', 'amazon']
+#
 # **45 Write a program to iterate through list and build a new dictionary, only if the items of the list has even number of characters.**
 # names = ['apple', 'yahoo', 'google', 'gmail', 'walmart', 'flipkart', 'facebook', 'amazon']
 #
@@ -1083,41 +859,4 @@ for name in names:
 #
 # **163 write a program to sort the given collection that contains uppercase, lowercase numeric and special character based on ASCII value**
 # >>> items = ['a', 'b', 'C', 'D', 1, 8, '!']
-####################################################################
-num="1,2,3,4,5,6"
-#output should be like "623451"
-#####
-num_=num.split(",")
-copy_ = num[:]
-for index,item in enumerate(num_):
-    if index==0:
-        num_[0]= num_[-1]
-    elif index == len(num_)-1 :
-        num_[len(num_)-1] = copy_[0]
-# print(num_)
-####
-num="1,2,3,4,5,6"
-num_ = num.split(",")
-first,*middle,last = num_
-res = last ,*middle, first
-# print(res)
-#######
-num_[0],num_[-1]=num_[-1],num_[0]
-# print(",".join(num_))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#
